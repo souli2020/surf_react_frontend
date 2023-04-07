@@ -1,8 +1,11 @@
-import { React, useEffect, useState } from 'react'
+import { React, useEffect, useState, useContext } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import { AuthContext } from '../context/LogContext'
+
 import fetchData from '../utils/fetchData'
 
 function PostDetails() {
+
     const { id } = useParams()
     const [loading, setLoading] = useState(true)
     const [post, setPost] = useState({})
@@ -30,7 +33,7 @@ function PostDetails() {
             <p className="post-description">Description: {post.description}</p>
             <div>
                 <h3>Created by: {post.author.username}</h3>
-                <strong className="post-location">Location: Morocco</strong>
+                <strong className="post-location">Location: {post.location}</strong>
             </div>
             <Link to=".." relative="path">go back?</Link >
         </section>) : (<h2>Loading ...</h2>))
