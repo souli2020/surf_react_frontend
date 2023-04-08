@@ -1,0 +1,3 @@
+# surf_react_frontend
+### migrating the surf shop project from ejs views  to react and changing the server side as well from using passport and express-session to jsonwebtoken 
+## IN PROGRESS ...
