@@ -36,10 +36,18 @@ function Login() {
 
 
                 }
+
             })
             .catch((error) => {
-                console.error(error);
+                // console.error(error);
                 // Handle registration error
+                if (error.response.status === 401) {
+
+                    console.log('wrong password or usernames', error.response.data)
+                    alert(error.response.data.msg)
+
+
+                }
             });
     }
     function handleInputChange(e) {
