@@ -8,6 +8,10 @@ import Posts from './pages/Posts'
 import PostDetails from './pages/PostsDetails'
 import RouterLayout from './pages/Layout';
 import Profile from './pages/Profile'
+import UpdateProfile from './pages/profile/UpdateProfile'
+import ForgotPassword from './pages/profile/ForgotPassword'
+import ResetPassword from './pages/profile/ResetPassword'
+import NewPost from './pages/NewPost'
 import { AuthContextProvider } from './context/LogContext'
 
 
@@ -16,22 +20,27 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <React.Fragment>
 
-                    <Route path='/' element={<AuthContextProvider>
-                        <RouterLayout />
-                    </AuthContextProvider>}>
-                        <Route index element={<Home />} />
-                        <Route path="/posts" element={<Posts />} />
-                        <Route path="/posts/:id" element={<PostDetails />} />
 
-                        <Route path="/register" element={<Register />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/logout" element={<Logout />} />
-                        <Route path="profile" element={<Profile />} />
-                    </Route>
+                <Route path='/' element={<AuthContextProvider>
+                    <RouterLayout />
+                </AuthContextProvider>}>
+                    <Route index element={<Home />} />
+                    <Route path="/posts" element={<Posts />} />
+                    <Route path="/posts/:id" element={<PostDetails />} />
+                    <Route path="/posts/new" element={<NewPost />} />
 
-                </React.Fragment >
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/logout" element={<Logout />} />
+                    <Route path="profile" element={<Profile />} >
+                        <Route path="edit" element={<UpdateProfile />} />
+                        <Route path="reset/:resetToken" element={<ResetPassword />} />
+                        <Route path="forgotPassword" element={<ForgotPassword />} />
+
+                    </Route >
+                </Route>
+
             </Routes>
         </BrowserRouter>
     )
