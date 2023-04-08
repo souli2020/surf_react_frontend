@@ -4,12 +4,11 @@ const AuthContext = createContext();
 
 function AuthContextProvider(props) {
     const [isLogged, setLogged] = useState(false);
-    const handleLog = () => {
-        setLogged(prev => !prev)
-    }
+    const token = localStorage.getItem('token');
+
 
     return (
-        <AuthContext.Provider value={{ isLogged, setLogged }}>
+        <AuthContext.Provider value={{ isLogged, setLogged, token }}>
             {props.children}
         </AuthContext.Provider>
     );
