@@ -13,6 +13,8 @@ import ForgotPassword from './pages/profile/ForgotPassword'
 import ResetPassword from './pages/profile/ResetPassword'
 import NewPost from './pages/NewPost'
 import { AuthContextProvider } from './context/LogContext'
+import UserPosts from './pages/profile/UserPosts'
+
 
 
 
@@ -30,11 +32,13 @@ function App() {
                     <Route path="/posts/:id" element={<PostDetails />} />
                     <Route path="/posts/new" element={<NewPost />} />
 
+
                     <Route path="/register" element={<Register />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/logout" element={<Logout />} />
                     <Route path="profile" element={<Profile />} >
                         <Route path="edit" element={<UpdateProfile />} />
+                        <Route path="posts/:id" element={<UserPosts />} />
                         <Route path="reset/:resetToken" element={<ResetPassword />} />
                         <Route path="forgotPassword" element={<ForgotPassword />} />
 
