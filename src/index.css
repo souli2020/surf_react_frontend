@@ -333,3 +333,299 @@ button[type="button"]:hover {
     top: 2%;
     right: 25%;
 }
+
+/*posts page*/
+.post-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.post {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(180, 185, 198, 0.2);
+    background-color: #FFF7ED;
+    height: 500px;
+
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    height: 500px;
+}
+
+.video-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+}
+
+.post h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #1E90FF;
+}
+
+.post div {
+    margin-bottom: 5px;
+}
+
+.post strong {
+    font-weight: bold;
+}
+
+.post a {
+    color: #0077cc;
+    text-decoration: none;
+}
+
+.post a:hover {
+    text-decoration: underline;
+}
+
+.post {
+    position: relative;
+    width: 100%;
+
+}
+
+.post .video-wrapper {
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%;
+
+}
+
+.post .video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post .video-title {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #fff;
+}
+
+.post .video-details {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #cc2f2f;
+    display: flex;
+    align-items: center;
+}
+
+.post .video-details strong {
+    margin-right: 10px;
+}
+
+.post .video-details a {
+    margin-left: 20px;
+}
+
+.post .video-details div {
+    margin-right: 20px;
+}
+
+.video-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* filter div in posts page */
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    justify-self: center;
+    background-color: #f2f4f8;
+    padding: 12px;
+}
+
+.filter-container button {
+    background-color: #1E90FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.filter-container button:hover {
+    background-color: #87CEFA;
+}
+
+.filter-container label {
+    font-size: 1rem;
+    margin-right: 0.5rem;
+    display: block;
+}
+
+.filter-container input[type="text"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+    width: 50%;
+}
+
+.filter-container input[type="text"]:focus {
+    outline: none;
+    border-color: #1E90FF;
+    box-shadow: 0 0 3px 0 #1E90FF;
+}
+
+.filter-container button.search-btn {
+    background-color: #1E90FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.filter-container button.search-btn:hover {
+    background-color: #87CEFA;
+}
+
+.filter-container button.clear-btn {
+    background-color: white;
+    color: #1E90FF;
+    border: 1px solid #1E90FF;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.filter-container button.clear-btn:hover {
+    background-color: #1E90FF;
+    color: white;
+}
+
+/*load man */
+/**
+  * Load man - gaming inspired loader
+  *
+  * @author jh3y - jheytompkins.com
+*/
+.load-man {
+    -webkit-animation: load-man-travel 1.2s infinite linear;
+    animation: load-man-travel 1.2s infinite linear;
+    background: repeating-linear-gradient(90deg, var(--secondary), var(--secondary) 5%, transparent 5%, transparent 35%);
+    height: 10px;
+    left: 50%;
+    margin-top: -5px;
+    position: absolute;
+    top: 50%;
+    width: 200px;
+    /**
+    * Our pseudo elements create the head pieces
+    *
+    * They are near identical minus subtle differences in animation and border
+    * styling
+  */
+    /**
+  * The top head piece
+  */
+    /**
+  * The bottom head piece
+  */
+}
+
+.load-man:after,
+.load-man:before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    border: 25px solid var(--primary);
+    border-radius: 100%;
+    margin-top: -25px;
+}
+
+.load-man:before {
+    --close: -90;
+    -webkit-animation: load-man-chomp 0.35s infinite linear;
+    animation: load-man-chomp 0.35s infinite linear;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+}
+
+.load-man:after {
+    --close: 0;
+    -webkit-animation: load-man-chomp 0.35s infinite linear;
+    animation: load-man-chomp 0.35s infinite linear;
+    border-right-color: transparent;
+    border-top-color: transparent;
+}
+
+@-webkit-keyframes load-man-travel {
+    to {
+        background-position: -200px 0;
+    }
+}
+
+@keyframes load-man-travel {
+    to {
+        background-position: -200px 0;
+    }
+}
+
+@-webkit-keyframes load-man-chomp {
+    0% {
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+
+    50% {
+        -webkit-transform: rotate(calc(var(--close) * 1deg));
+        transform: rotate(calc(var(--close) * 1deg));
+    }
+
+    100% {
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes load-man-chomp {
+    0% {
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+
+    50% {
+        -webkit-transform: rotate(calc(var(--close) * 1deg));
+        transform: rotate(calc(var(--close) * 1deg));
+    }
+
+    100% {
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+}
