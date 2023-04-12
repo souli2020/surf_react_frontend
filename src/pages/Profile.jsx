@@ -15,7 +15,7 @@ function Profile() {
     const [loading, setLoading] = useState(true)
     const [posts, setPosts] = useState([])
     const [user, setUser] = useState()
-    const { setLogged, token, isLogged } = useContext(AuthContext)
+    const { setLogged, token, isLogged, refresh } = useContext(AuthContext)
     useEffect(() => {
         const fetchData = async () => {
             const res = await fetch("http://localhost:3000/profile", {
@@ -40,12 +40,12 @@ function Profile() {
         }
 
         fetchData()
-    }, [])
+    }, [refresh])
     let userPosts
     userPosts = posts.length ? userPosts = <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "1fr 1fr 1fr" }}>{posts.map(post => {
         return <div style={{ border: "1px solid black", borderRadius: '0.5rem', padding: "12px 27px" }} key={post._id} >
             <h3>   {post.title} </h3>
-            <Link to={`/posts/${post._id}`} relative='route'>View details</Link>
+            <Link to={`/profile/posts/${post._id}`} relative='path'>View details</Link>
 
         </div>
     })}  </div> :
