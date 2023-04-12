@@ -1,6 +1,7 @@
 import { React, useEffect, useState, useContext } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { AuthContext } from '../context/LogContext'
+import VideoPlayer from '../components/VideoPlayer'
 
 import fetchData from '../utils/fetchData'
 
@@ -26,17 +27,24 @@ function PostDetails() {
     }, [])
 
     return (
+        <>
 
-        !loading ? (<section className="post-details" >
-            <h2>Title: {post.title}</h2>
-            <div className="post-price">Price: {post.price}</div>
-            <p className="post-description">Description: {post.description}</p>
-            <div>
-                <h3>Created by: {post.author.username}</h3>
-                <strong className="post-location">Location: {post.location}</strong>
-            </div>
-            <Link to=".." relative="path">go back?</Link >
-        </section>) : (<h2>Loading ...</h2>))
+            {!loading ? (
+                <section className="post-details" >
+                    <h2>Title: {post.title}</h2>
+                    <div className="post-price">Price: {post.price}</div>
+                    <p className="post-description">Description: {post.description}</p>
+                    {post.videos && post.videos.length > 0 &&
+                        <VideoPlayer src={post.videos[0]?.path} width={300} height={400} />}
+                    <div>
+                        <h3>Created by: {post.author.username}</h3>
+                        <strong className="post-location">Location: {post.location}</strong>
+                    </div>
+                    <Link to=".." relative="path">go back?</Link >
+                </section>)
+                : (<h2>Loading ...</h2>)}
+        </>
+    )
 }
 
 
