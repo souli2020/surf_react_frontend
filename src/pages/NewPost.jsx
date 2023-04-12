@@ -5,7 +5,7 @@ function NewPost() {
     const navigateTo = useNavigate()
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
-    const [images, setImages] = useState([]);
+    const [videos, setVideos] = useState([]);
     const [description, setDescription] = useState("");
     const [location, setLocation] = useState("");
 
@@ -17,8 +17,8 @@ function NewPost() {
         setPrice(event.target.value);
     };
 
-    const handleImagesChange = (event) => {
-        setImages(Array.from(event.target.files));
+    const handleVideosChange = (event) => {
+        setVideos(Array.from(event.target.files));
     };
 
     const handleDescriptionChange = (event) => {
@@ -36,8 +36,8 @@ function NewPost() {
         const formData = new FormData();
         formData.append("title", title);
         formData.append("price", price);
-        for (let i = 0; i < images.length; i++) {
-            formData.append("images", images[i]);
+        for (let i = 0; i < videos.length; i++) {
+            formData.append("videos", videos[i]);
         }
         formData.append("description", description);
         formData.append("location", location);
@@ -84,10 +84,10 @@ function NewPost() {
                 <div>
                     <input
                         type="file"
-                        name="images"
-                        accept="image/*"
+                        name="videos"
+                        accept="video/*"
                         multiple
-                        onChange={handleImagesChange}
+                        onChange={handleVideosChange}
                     />
                 </div>
                 <div>
