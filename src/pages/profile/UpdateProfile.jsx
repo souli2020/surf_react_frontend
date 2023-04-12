@@ -66,12 +66,14 @@ function UpdateProfile() {
         event.preventDefault();
 
         const form = new FormData();
+        form.append('type', 'profile');
         form.append('username', formData.username);
         form.append('currentPassword', formData.currentPassword);
         form.append('newPassword', formData.newPassword);
         form.append('passwordConfirmation', formData.passwordConfirmation);
         form.append('email', formData.email);
         form.append('image', formData.image);
+
 
         try {
             const response = await axios.put('http://localhost:3000/profile', form, {
